@@ -6,7 +6,7 @@ export default function pipe(transformers: MoveTransformer[]) {
   return (
     move: TransformersMove,
     gameState: GameState
-  ) => {
+  ): TransformersMove => {
     let result = move;
 
     const mainPiecePositionChange = getMainPiecePositionChange( move );

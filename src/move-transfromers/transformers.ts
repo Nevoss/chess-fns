@@ -1,4 +1,4 @@
-import type {MoveTransformer} from './types';
+import type {MoveTransformer, TransformersMove} from './types';
 import {getPieceByPosition, getPositionDelta, toBoardPositionTuple} from '../utils';
 
 export const friendlyPieceTransformer: MoveTransformer = (move, {piece, mainPiecePositionChange, gameState}) => {
@@ -27,7 +27,7 @@ export const opponentPieceTransformer: MoveTransformer = (move, {piece, mainPiec
         ]
       },
       blocking: true,
-    };
+    } as TransformersMove;
   }
 
   return move;
@@ -110,5 +110,5 @@ export const pawnDiagonalMoveTransformer: MoveTransformer = (move, {gameState, m
       ]
     },
     blocking: true,
-  };
+  } as TransformersMove;
 };

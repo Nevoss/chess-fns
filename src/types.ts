@@ -80,7 +80,7 @@ export interface PiecePromotionChange {
   to: PieceType;
 }
 
-export type Move = {
+export interface Move {
   changes: {
     piecePositions: [PieceMainPositionChange, ...PiecePositionChange[]];
     piecePromotion?: PiecePromotionChange;
@@ -88,7 +88,7 @@ export type Move = {
   }
 }
 
-export type GameState = {
+export interface GameState {
   turn: PieceColor;
   pieces: Piece[];
   canCastle: CanCastle;
