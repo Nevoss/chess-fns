@@ -1,5 +1,5 @@
 import type {MoveTransformer, TransformersMove} from './types';
-import {getPieceByPosition, getPositionDelta, toBoardPositionTuple} from '../utils';
+import {getPieceByPosition, getBoardPositionDelta, toBoardPositionTuple} from '../utils';
 
 export const friendlyPieceTransformer: MoveTransformer = (move, {piece, mainPiecePositionChange, gameState}) => {
   const {to} = mainPiecePositionChange;
@@ -35,7 +35,7 @@ export const opponentPieceTransformer: MoveTransformer = (move, {piece, mainPiec
 
 export const pawnColorDirectionTransformer: MoveTransformer = (move, {piece, mainPiecePositionChange}) => {
   const {from, to} = mainPiecePositionChange;
-  const [, rankDelta] = getPositionDelta(from, to);
+  const [, rankDelta] = getBoardPositionDelta(from, to);
 
   if (
     (piece.color === 'white' && rankDelta <= 0) ||
@@ -50,7 +50,7 @@ export const pawnColorDirectionTransformer: MoveTransformer = (move, {piece, mai
 export const pawnFirstMoveTransformer: MoveTransformer = (move, {piece, mainPiecePositionChange}) => {
   const {from, to} = mainPiecePositionChange;
   const [, rank] = toBoardPositionTuple(from)
-  const [, rankDelta] = getPositionDelta(from, to);
+  const [, rankDelta] = getBoardPositionDelta(from, to);
 
   if (
     Math.abs(rankDelta) === 2 &&
@@ -67,7 +67,7 @@ export const pawnFirstMoveTransformer: MoveTransformer = (move, {piece, mainPiec
 
 export const pawnStraightMoveTransformer: MoveTransformer = (move, {gameState, mainPiecePositionChange}) => {
   const {from, to} = mainPiecePositionChange;
-  const [fileDelta, rankDelta] = getPositionDelta(from, to);
+  const [fileDelta, rankDelta] = getBoardPositionDelta(from, to);
 
   // Check if straight move
   if (!(fileDelta === 0 && rankDelta !== 0)) {
@@ -86,7 +86,7 @@ export const pawnStraightMoveTransformer: MoveTransformer = (move, {gameState, m
 
 export const pawnDiagonalMoveTransformer: MoveTransformer = (move, {gameState, mainPiecePositionChange, piece}) => {
   const {from, to} = mainPiecePositionChange;
-  const [fileDelta, rankDelta] = getPositionDelta(from, to);
+  const [fileDelta, rankDelta] = getBoardPositionDelta(from, to);
 
   // Check if diagonal move.
   if (Math.abs(fileDelta) !== Math.abs(rankDelta)) {

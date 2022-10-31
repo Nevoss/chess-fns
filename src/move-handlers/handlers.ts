@@ -1,5 +1,5 @@
-import createHandler from './createHandler';
-import { boardFiles, boardRanks } from '../board';
+import createHandler from '@/move-handlers/createHandler';
+import { boardFiles, boardRanks } from '@/board';
 
 export const toTop = createHandler(([fileIndex, rankIndex], delta) => {
   return [boardFiles[fileIndex], boardRanks[rankIndex + delta]];

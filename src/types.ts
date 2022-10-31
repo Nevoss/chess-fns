@@ -94,5 +94,6 @@ export interface GameState {
   canCastle: CanCastle;
   enPassantTarget: BoardPosition | null;
   halfMoveClock: number;
+  fullMoveNumber: number;
   history: Move[];
 }

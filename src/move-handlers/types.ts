@@ -1,4 +1,4 @@
-import type {BoardFile, BoardPosition, BoardRank} from '../types';
+import type {BoardFile, BoardPosition, BoardRank} from '@/types';
 
 export type IncompleteMoveHandler = (
   [fileIndex, rankIndex]: [number, number],

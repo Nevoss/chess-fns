@@ -1,4 +1,7 @@
 {
+  "name": "chess-fns",
+  "author": "Nevo Golan",
+  "module": "dist/chess-fns.esm.js",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -11,45 +14,21 @@
     "node": ">=16"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "start": "",
+    "build": "",
+    "test": "",
+    "lint": "eslint ./src",
+    "prepare": "",
+    "size": "",
+    "analyze": ""
   },
-  "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "chess-fns",
-  "author": "Nevo Golan",
-  "module": "dist/chess-fns.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/chess-fns.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/chess-fns.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^8.1.0",
-    "husky": "^8.0.1",
-    "size-limit": "^8.1.0",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.7.1",
     "typescript": "^4.8.4"
-  }
+  },
+  "dependencies": {}
 }

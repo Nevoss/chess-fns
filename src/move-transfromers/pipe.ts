@@ -1,6 +1,6 @@
-import type {MoveTransformer, TransformersMove} from './types';
-import type {GameState} from "../types";
-import {getMainPiecePositionChange, getPieceById, isOnBoardPiece} from "../utils";
+import type {MoveTransformer, TransformersMove} from '@/move-transfromers/types';
+import type {GameState} from "@/types";
+import {getMainPiecePositionChange, getPieceById, isOnBoardPiece} from "@/utils";
 
 export default function pipe(transformers: MoveTransformer[]) {
   return (
@@ -9,10 +9,10 @@ export default function pipe(transformers: MoveTransformer[]) {
   ): TransformersMove => {
     let result = move;
 
-    const mainPiecePositionChange = getMainPiecePositionChange( move );
-    const piece = getPieceById( gameState.pieces, mainPiecePositionChange.pieceId );
+    const mainPiecePositionChange = getMainPiecePositionChange(move);
+    const piece = getPieceById(gameState.pieces, mainPiecePositionChange.pieceId);
 
-    if ( ! piece || ! isOnBoardPiece( piece ) ) {
+    if (!piece || !isOnBoardPiece(piece)) {
       return result;
     }
 

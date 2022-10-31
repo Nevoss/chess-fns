@@ -7,9 +7,9 @@ import type {
   PieceColor,
   Move,
   PieceMainPositionChange, BoardPositionTuple
-} from "./types";
-import {boardFiles, boardRanks} from "./board";
-import {PieceId} from "./types";
+} from "@/types";
+import {boardFiles, boardRanks} from "@/board";
+import {PieceId} from "@/types";
 
 export function isOnBoardPiece(piece: Piece): piece is OnBoardPiece {
   return !!piece.position?.length;
@@ -38,7 +38,7 @@ export function getPieceById(pieces: Piece[], pieceId: PieceId): Piece | undefin
 }
 
 export function getPieceByPosition(pieces: Piece[], position: BoardPosition): OnBoardPiece | undefined {
-  return pieces.find(piece => piece.position === position) as OnBoardPiece | undefined;
+  return pieces.find(piece => isOnBoardPiece(piece) && piece.position === position) as OnBoardPiece | undefined;
 }
 
 export function toBoardPositionTuple(position: BoardPosition): BoardPositionTuple {
@@ -47,13 +47,13 @@ export function toBoardPositionTuple(position: BoardPosition): BoardPositionTupl
   return [file, rank];
 }
 
-export default function getBoardPositionIndexes(position: BoardPosition): [number, number] {
+export function getBoardPositionIndexes(position: BoardPosition): [number, number] {
   const [file, rank] = toBoardPositionTuple( position );
 
   return [boardFiles.indexOf(file), boardRanks.indexOf(rank)];
 }
 
-export function getPositionDelta(from: BoardPosition, to: BoardPosition): [number, number] {
+export function getBoardPositionDelta(from: BoardPosition, to: BoardPosition): [number, number] {
   const [fromFileIndex, fromRankIndex] = getBoardPositionIndexes(from);
   const [toFileIndex, toRankIndex] = getBoardPositionIndexes(to);
 

@@ -1,9 +1,9 @@
-import type {BoardPosition, GameState, Move, OnBoardPiece, Piece, PieceColor, PieceId, PieceType} from './types';
-import type {MoveHandler} from "./move-handlers";
-import type {MoveTransformer} from "./move-transfromers";
-import getBoardPositionIndexes, {getPieceByPosition, isBoardPosition, isOnBoardPiece, isPieceColor} from "./utils";
-import {handlers} from "./move-handlers";
-import {pipeMoveTransformers, transformers} from "./move-transfromers";
+import type {BoardPosition, GameState, Move, OnBoardPiece, Piece, PieceColor, PieceId, PieceType} from '@/types';
+import type {MoveHandler} from "@/move-handlers";
+import type {MoveTransformer} from "@/move-transfromers";
+import {getBoardPositionIndexes, getPieceByPosition, isBoardPosition, isOnBoardPiece, isPieceColor} from "@/utils";
+import {handlers} from "@/move-handlers";
+import {pipeMoveTransformers, transformers} from "@/move-transfromers";
 
 const piecesMoveOptions: Record<PieceType,
   { maxSteps: number; handlers: MoveHandler[]; transformers: MoveTransformer[] }> = {
@@ -107,7 +107,7 @@ export default function getAvailableMoves(gameState: GameState, subject?: PieceC
   const [fileIndex, rankIndex] = getBoardPositionIndexes(piece.position);
 
   const moves: Move[] = [];
-  let currentHandlers = new Set<MoveHandler>([...handlers]);
+  const currentHandlers = new Set<MoveHandler>([...handlers]);
 
   // Run over the steps that the piece can make.
   for (let i = 0; i < maxSteps; i++) {

@@ -1,4 +1,4 @@
-import type {GameState} from "./types";
+import type {GameState} from "@/types";
 
 export default function getInitialState(): GameState {
   return {
@@ -43,6 +43,7 @@ export default function getInitialState(): GameState {
     },
     enPassantTarget: null,
     halfMoveClock: 0,
+    fullMoveNumber: 0,
     history: [],
   };
 }

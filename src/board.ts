@@ -1,4 +1,4 @@
-import type { BoardFile, BoardRank } from './types';
+import type {BoardFile, BoardRank} from '@/types';
 
 export const boardRanks: readonly BoardRank[] = [
   '1',
@@ -21,3 +21,4 @@ export const boardFiles: readonly BoardFile[] = [
   'g',
   'h',
 ] as const;
+

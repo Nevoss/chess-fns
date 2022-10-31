@@ -1,2 +1,2 @@
-export type { MoveHandler } from './types';
-export * as handlers from './handlers';
+export type { MoveHandler } from '@/move-handlers/types';
+export * as handlers from '@/move-handlers/handlers';

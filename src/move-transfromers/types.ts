@@ -1,4 +1,4 @@
-import type {GameState, Move, OnBoardPiece, PieceMainPositionChange} from '../types';
+import type {GameState, Move, OnBoardPiece, PieceMainPositionChange} from '@/types';
 
 export interface TransformersMove extends Move {
   invalid: boolean;

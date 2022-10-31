@@ -1,4 +1,4 @@
-import type {IncompleteMoveHandler, MoveHandler} from './types';
+import type {IncompleteMoveHandler, MoveHandler} from '@/move-handlers/types';
 
 export default function createHandler(
   incompleteMoveHandler: IncompleteMoveHandler
